@@ -28,7 +28,9 @@ const SearchBar = () => {
                     type='text'
                     style={{
                         backgroundColor: 'White',
-                        borderRadius: '10px 0px 0px 10px'
+                        border: 'none',
+                        borderRadius: '10px 0px 0px 10px',
+                        height: '55px'
                     }}
                 />
                 <Button 
@@ -40,7 +42,9 @@ const SearchBar = () => {
                     bgcolor: '#20B2AA',
                     textTransform: 'none',
                     borderRadius: 'none',
-                    height: '62px'
+                    height: '55px',
+                    fontWeight: '500px',
+                    fontSize: '20px'
                 }}
                 onClick={() => console.log('Searching for: ', search)}
                 >
