@@ -10,7 +10,7 @@ const NavBar = () => {
         sx={{ 
             position: 'fixed',
             top: '0',
-            width: '100%',
+            width: '50%',
             height: '60px',
             zIndex: '100',
             py: 2,
@@ -20,7 +20,7 @@ const NavBar = () => {
         <Stack 
             direction={'row'}
             justifyContent={'space-around'}
-            sx={{ gap: {sm: '122px', xs: '40px'}, mt: {sm: '32px', xs: '20px'}, justifyContent: 'none'}}>
+            sx={{ gap: {sm: '122px', xs: '40px'}, mt: {sm: '32px', xs: '20px'}, justifyContent: 'none', paddingX: 16}}>
             {/* <Link to='/'>
                 <img></img>    
             </Link> */}
