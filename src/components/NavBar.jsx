@@ -30,8 +30,8 @@ const NavBar = () => {
                 fontSize={'24px'}
                 alignItems={'flex-end'}
             >
-                <Link className='navTextColor' to="/">Home</Link>
-                <Link className='navTextColor'to="/exercise">Exercises</Link>
+                <Link className='navTextColor hover-underline' to="/">Home</Link>
+                <Link className='navTextColor hover-underline'to="/exercise">Exercises</Link>
             </Stack>
         </Stack>
 

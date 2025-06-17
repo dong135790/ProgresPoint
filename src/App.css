@@ -59,13 +59,16 @@ body {
 
 .hero-banner-img {
   position: absolute;
-  right: 40px;
-  top: 0;
+  right: 10%;
+  top: 10%;
   transform: translateX(-20%);
-  width: auto;
-  height: auto;
+  max-width: 100%;
   max-height: 90vh;
-  border-radius: 00px 0px 0px 20px;
+  height: auto;
+  /* width: auto;
+  height: auto; */
+  max-height: 90vh;
+  border-radius: 20px 0px 0px 20px;
   object-fit: cover;
 }
 
@@ -105,7 +108,7 @@ body {
 }
 
 .navTextColor {
-  color: white;
+  color: #20B2AA;
   font-weight: 400;
   text-decoration: 'none';
 }
@@ -118,6 +121,30 @@ body {
   height: 381px;
   text-decoration: none;
 }
+
+.hover-underline {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
 
 @media screen and (max-width:1200px) {
   .detail-image {
