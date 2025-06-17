@@ -39,7 +39,7 @@ const SearchBar = () => {
                 backgroundColor= 'blue'
                 color='blue'
                 sx={{ 
-                    width: { lg: '120px', xs: '50px'},
+                    width: { lg: '120px', xs: '90px'},
                     bgcolor: '#20B2AA',
                     textTransform: 'none',
                     borderRadius: 'none',
