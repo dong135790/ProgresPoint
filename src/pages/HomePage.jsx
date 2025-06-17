@@ -22,7 +22,7 @@ const HomePage = () => {
       <Typography fontWeight={500} fontSize={45} sx={{ pt: 6 }}>
         Discipline, Dedication, and Consistency
       </Typography>
-      <Typography mt={1} mb={2} lineHeight={'35px'} fontWeight={400}>
+      <Typography mt={1} mb={2} lineHeight={'35px'} width={'500px'} fontWeight={400}>
         Talent is something you make bloom, instinct is something you polish.
       </Typography>
       <Link to="/exercise">
