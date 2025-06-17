@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Box sx={{ paddingTop: '300px', paddingX: 20 }}>
+      <Box sx={{ paddingTop: '150px', paddingX: 20 }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/exercise" element={<ExercisePage />} />

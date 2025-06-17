@@ -58,16 +58,14 @@ body {
 }
 
 .hero-banner-img {
-  position: absolute;
   right: 10%;
   top: 10%;
-  transform: translateX(-20%);
   max-width: 100%;
   max-height: 90vh;
   height: auto;
   /* width: auto;
   height: auto; */
-  max-height: 90vh;
+  /* max-height: 90vh; */
   border-radius: 20px 0px 0px 20px;
   object-fit: cover;
 }
