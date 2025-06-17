@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Box, Button, Stack, TextField, Typography} from '@mui/material'
 
 const SearchBar = () => {
+    // Allows user to actually type input in search bar and computer updates it
     const [search, setSearch] = useState('')
   return (
     <>
