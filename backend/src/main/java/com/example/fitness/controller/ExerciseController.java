@@ -3,6 +3,7 @@ package com.example.fitness.controller;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
@@ -19,20 +20,91 @@ public class ExerciseController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/api/external-exercises")
-    public ResponseEntity<String> getExercises() {
-        String url = "https://exercisedb.p.rapidapi.com/exercises?limit=10&offset=0";
-
+    public HttpEntity<String> getHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-host", rapidapiHost);
         headers.set("x-rapidapi-key", rapidapiKey);
+        return new HttpEntity<>(headers);
+    }
 
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
+    @GetMapping("/api/exercises")
+    public ResponseEntity<String> getExercises() {
+        String url = "https://exercisedb.p.rapidapi.com/exercises?limit=1000&offset=0";
         ResponseEntity<String> response = restTemplate.exchange(
-            url, HttpMethod.GET, entity, String.class
+            url, HttpMethod.GET, getHttpEntity(), String.class
         );
+        return ResponseEntity.ok(response.getBody());
+    }
 
+    @GetMapping("/api/exercises/name/{name}")
+    public ResponseEntity<String> getExerciseByName(@PathVariable String name) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/name/" + name;
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/exercise/{id}")
+    public ResponseEntity<String> getExerciseById(@PathVariable String id) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/exercise/" + id;
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/target/{target}")
+    public ResponseEntity<String> getExerciseByTarget(@PathVariable String target) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/target/" + target;
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/equipment/{type}")
+    public ResponseEntity<String> getExerciseByEquipmentType(@PathVariable String type) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/equipment/" + type;
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/bodyPart/{bodyPart}")
+    public ResponseEntity<String> getExerciseByBodyPart(@PathVariable String bodyPart) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/" + bodyPart;
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/bodyPartList")
+    public ResponseEntity<String> getExerciseByBodyPartList() {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/bodyPartList";
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/equipmentList")
+    public ResponseEntity<String> getExerciseByEquipmentList() {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/equipmentList";
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    @GetMapping("/api/exercises/targetList")
+    public ResponseEntity<String> getExerciseByTargetList() {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/targetList";
+        ResponseEntity<String> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), String.class
+        );
         return ResponseEntity.ok(response.getBody());
     }
 }
