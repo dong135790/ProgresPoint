@@ -5,6 +5,12 @@ import { Box, Button, Stack, TextField, Typography} from '@mui/material'
 const SearchBar = () => {
     // Allows user to actually type input in search bar and computer updates it
     const [search, setSearch] = useState('')
+
+    // const handleSearch = async () => {
+    //     if (search) {
+    //         const exerciseData = await fetchData()
+    //     }
+    // }
   return (
     <>
         <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} spacing={2}>
