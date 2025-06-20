@@ -1,16 +1,27 @@
 import React from 'react'
 import { useState } from 'react'
 import { Box, Button, Stack, TextField, Typography} from '@mui/material'
+import ExerciseList from './ExerciseList'
 
-const SearchBar = () => {
+const SearchBar = ( {setExercises} ) => {
     // Allows user to actually type input in search bar and computer updates it
     const [search, setSearch] = useState('')
 
-    // const handleSearch = async () => {
-    //     if (search) {
-    //         const exerciseData = await fetchData()
-    //     }
-    // }
+    const handleSearch = async () => {
+        if (search) {
+            const exerciseData = await fetch('http://localhost:8080/api/exercises')
+            .then(res => res.json())
+            
+            const filteredExercise = exerciseData.filter(
+                (exercise) => exercise.name.toLowerCase().includes(search)
+                || exercise.target.toLowerCase().includes(search)
+                || exercise.bodyPart.toLowerCase().includes(search)
+                || exercise.bodyPart.toLowerCase().includes(search)
+            )
+            setSearch('')
+            setExercises(filteredExercise)
+        }
+    }
   return (
     <>
         <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} spacing={2}>
@@ -53,7 +64,7 @@ const SearchBar = () => {
                     fontWeight: '500px',
                     fontSize: '20px'
                 }}
-                onClick={() => console.log('Searching for: ', search)}
+                onClick={() => handleSearch()}
                 >
                     Search
                 </Button>

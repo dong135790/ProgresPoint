@@ -29,7 +29,7 @@ public class ExerciseController {
 
     @GetMapping("/api/exercises")
     public ResponseEntity<String> getExercises() {
-        String url = "https://exercisedb.p.rapidapi.com/exercises?limit=1000&offset=0";
+        String url = "https://exercisedb.p.rapidapi.com/exercises?limit=2000&offset=0";
         ResponseEntity<String> response = restTemplate.exchange(
             url, HttpMethod.GET, getHttpEntity(), String.class
         );
