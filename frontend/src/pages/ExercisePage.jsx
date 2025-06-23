@@ -25,7 +25,10 @@ const ExercisePage = () => {
         <SearchBar setExercises={setExercises}/>
       </Box>
       <Box>
-        <BodyPartList allExercises={allExercises} setExercises={setExercises}/>
+        <BodyPartList 
+          allExercises={allExercises}
+          setExercises={setExercises}
+        />
       </Box>
       <Divider
         sx={{ 
