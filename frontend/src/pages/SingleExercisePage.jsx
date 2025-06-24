@@ -1,23 +1,39 @@
 import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom' 
+import ExerciseDetailCard from '../components/singleExercise/ExerciseDetailCard'
+import SimilarExercise from '../components/singleExercise/SimilarExercise'
+import SimilarExerciseByEquipment from '../components/singleExercise/SimilarExerciseByEquipment'
 
-const SingleExercisePage = () => {
+const SingleExercisePage = ({ exercises }) => {
     const { id } = useParams()
     const [data, setData] = useState(null)
-
     useEffect(() => {
         const fetchSingleExeriseData = async () => {
             const exerciseData = await fetch('http://localhost:8080/api/exercises/exercise/' + id)
             .then(res => res.json())
             setData(exerciseData)
-            console.log("success")
         }
         fetchSingleExeriseData();
-    }, [])
+    }, [id])
 
+    
     if (!data) return <div>Loading...</div>
+
+    const similarExercises = exercises.filter((exercise) => {
+        return (
+            (exercise.bodyPart.toLowerCase() === data.bodyPart.toLowerCase()
+            || exercise.target.toLowerCase() == data.target.toLowerCase())
+            && exercise.id !== data.id
+        )
+    })
     return (
-        <div>{data.name}</div>
+        <>
+            <ExerciseDetailCard singleExercise={data}/>
+            <SimilarExercise similarExercises={similarExercises}/>
+            <SimilarExerciseByEquipment/>
+            <div>{data.name}</div>
+        </>
+
     )
 }
 

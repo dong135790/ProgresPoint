@@ -47,7 +47,7 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
                                 width: '6vw',
                             }}
                             value={body}
-                            key={body}
+                            key={body.id}
                             onClick={() => {
                                 const filteredList = allExercises.filter(
                                     (exercises) => exercises.bodyPart.toLowerCase() == body.toLowerCase()
