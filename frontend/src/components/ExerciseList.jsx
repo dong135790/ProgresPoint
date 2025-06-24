@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Stack, Box, Pagination } from '@mui/material'
 import ExerciseCard from './ExerciseCard'
 
@@ -11,50 +11,48 @@ const ExerciseList = ({ exercises }) => {
 
   const paginate = (e, value) => {
     setCurrentPage(value)
-    window.scrollTo({ top: 500, behavior: 'smooth'})
+    window.scrollTo({ top: 500, behavior: 'smooth' })
   }
 
   return (
-    <>
-      <Box
-        id="exercises"
-        sx={{ 
-          mt: {lg: '110px'}
-        }}
-        mt={'50px'}
-        p={'20px'}
+    <Box
+      id="exercises"
+      sx={{
+        mt: { lg: '110px' }
+      }}
+      mt={'50px'}
+      p={'20px'}
+    >
+      <Stack
+        direction={'row'}
+        sx={{ gap: { lg: '90px', xs: '30px' } }}
+        flexWrap={'wrap'}
+        justifyContent={'center'}
       >
-        <Stack
-          direction={'row'}
-          sx={{ gap: {lg: '90px', xs: '30px'}}}
-          flexWrap={'wrap'}
-          justifyContent={'center'}
-        >
-          {currentExercises.map((singleExercise, index) => (
-            <ExerciseCard key={index} exercise={singleExercise}/>
-          ))}
-        </Stack>
-        <Stack
-          mt={'100px'}
-          alignItems={'center'}
-          spacing={2}
-        >
-          {exercises.length > 9 &&  (
-            <Pagination
-              sx={{ bgcolor: 'white', padding: '10px', borderRadius: '10px'}}
-              color='primary'
-              shape='rounded'
-              variant='outlined'
-              defaultPage={1}
-              count={Math.ceil(exercises.length/9)}
-              page={currentPage}
-              onChange={paginate}
-              size='large'
-            />
-          )}
-        </Stack>
-      </Box>
-    </>
+        {currentExercises.map((singleExercise, index) => (
+          <ExerciseCard key={index} exercise={singleExercise} />
+        ))}
+      </Stack>
+      <Stack
+        mt={'100px'}
+        alignItems={'center'}
+        spacing={2}
+      >
+        {exercises.length > 9 && (
+          <Pagination
+            sx={{ bgcolor: 'white', padding: '10px', borderRadius: '10px' }}
+            color='primary'
+            shape='rounded'
+            variant='outlined'
+            defaultPage={1}
+            count={Math.ceil(exercises.length / 9)}
+            page={currentPage}
+            onChange={paginate}
+            size='large'
+          />
+        )}
+      </Stack>
+    </Box>
   )
 }
 

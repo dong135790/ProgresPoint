@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
-import ExerciseList from './ExerciseList'
 
 const SearchBar = ({ setExercises }) => {
     // Allows user to actually type input in search bar and computer updates it
@@ -21,7 +20,7 @@ const SearchBar = ({ setExercises }) => {
             )
             setSearch('')
             setExercises(filteredExercise)
-            if (filteredExercise.length === 0){ 
+            if (filteredExercise.length === 0) {
                 setError('Exercise not found')
             } else {
                 setError('')
@@ -29,60 +28,57 @@ const SearchBar = ({ setExercises }) => {
         }
     }
 
-    console.log(error)
     return (
-        <>
-            <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} spacing={2}>
-                <Typography
-                    fontWeight={600}
-                    sx={{ fontSize: { lg: '44px', xs: '30px' } }}
-                    textAlign={'center'}
+        <Stack direction={'column'} alignItems={'center'} justifyContent={'center'} spacing={2}>
+            <Typography
+                fontWeight={600}
+                sx={{ fontSize: { lg: '44px', xs: '30px' } }}
+                textAlign={'center'}
+            >
+                Discover your Exercise!
+            </Typography>
+            <Box
+                position='relative'
+                mt='50px'
+                display='flex'
+                flexDirection='row'
+            >
+                <TextField
+                    sx={{
+                        width: { lg: '900px', xs: '500px' },
+                        backgroundColor: 'White',
+                        border: 'none',
+                        borderRadius: '10px 0px 0px 10px',
+                        height: '55px'
+                    }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder='Search Exercise'
+                    type='text'
+                />
+                <Button
+                    position='absolute'
+                    sx={{
+                        width: { lg: '120px', xs: '90px' },
+                        bgcolor: '#20B2AA',
+                        textTransform: 'none',
+                        borderRadius: 'none',
+                        height: '55px',
+                        fontWeight: '500px',
+                        fontSize: '20px',
+                        color: '#fff'
+                    }}
+                    onClick={() => handleSearch()}
                 >
-                    Discover your Exercise!
+                    Search
+                </Button>
+            </Box>
+            {error && (
+                <Typography>
+                    {error}
                 </Typography>
-                <Box
-                    position='relative'
-                    mt='50px'
-                    display='flex'
-                    flexDirection='row'
-                >
-                    <TextField
-                        sx={{
-                            width: { lg: '900px', xs: '500px' },
-                            backgroundColor: 'White',
-                            border: 'none',
-                            borderRadius: '10px 0px 0px 10px',
-                            height: '55px'
-                        }}
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        placeholder='Search Exercise'
-                        type='text'
-                    />
-                    <Button
-                        position='absolute'
-                        sx={{
-                            width: { lg: '120px', xs: '90px' },
-                            bgcolor: '#20B2AA',
-                            textTransform: 'none',
-                            borderRadius: 'none',
-                            height: '55px',
-                            fontWeight: '500px',
-                            fontSize: '20px',
-                            color: '#fff'
-                        }}
-                        onClick={() => handleSearch()}
-                    >
-                        Search
-                    </Button>
-                </Box>
-                {error && (
-                    <Typography>
-                        {error}
-                    </Typography>
-                )}
-            </Stack>
-        </>
+            )}
+        </Stack>
     )
 }
 

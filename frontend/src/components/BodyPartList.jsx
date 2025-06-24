@@ -23,7 +23,7 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
         >
             <Typography 
                 textAlign={'center'}
-                fontWeight={300}
+                fontWeight={500}
                 sx={{ fontSize: { lg: '30px', xs: '20px'}}}
             >
                 Filter By Body Part
@@ -55,7 +55,9 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
                                 setExercises(filteredList)
                             }}
                         >
-                            {body}
+                            <Typography fontWeight={400}>
+                                {body}
+                            </Typography>
                         </Button>
                     </Stack>
                 ))}
