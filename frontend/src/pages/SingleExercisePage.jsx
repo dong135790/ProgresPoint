@@ -26,12 +26,17 @@ const SingleExercisePage = ({ exercises }) => {
             && exercise.id !== data.id
         )
     })
+
+    const exercisesByEquipment = exercises.filter((exercise) => (
+        exercise.equipment.toLowerCase() === data.equipment.toLowerCase()
+        && exercise.id !== data.id
+    ))
+
     return (
         <>
             <ExerciseDetailCard singleExercise={data}/>
             <SimilarExercise similarExercises={similarExercises}/>
-            <SimilarExerciseByEquipment/>
-            <div>{data.name}</div>
+            <SimilarExerciseByEquipment exercisesByEquipment={exercisesByEquipment}/>
         </>
 
     )

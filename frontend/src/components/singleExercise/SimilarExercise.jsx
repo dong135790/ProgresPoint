@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 
 const SimilarExercise = ({ similarExercises }) => {
     const scrollRef = useRef(null)
-    console.log(similarExercises)
 
     const scroll = (direction) => {
         if (scrollRef.current) {

@@ -35,8 +35,8 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
                 justifyContent={'space-between'}
                 gap={2}
             >
-                {bodyPart.map((body) => (
-                    <Stack>
+                {bodyPart.map((body, index) => (
+                    <Stack key={index}>
                         <Button 
                             sx={{ 
                                 textTransform: 'capitalize',
@@ -47,7 +47,7 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
                                 width: '6vw',
                             }}
                             value={body}
-                            key={body.id}
+                            key={body}
                             onClick={() => {
                                 const filteredList = allExercises.filter(
                                     (exercises) => exercises.bodyPart.toLowerCase() == body.toLowerCase()
