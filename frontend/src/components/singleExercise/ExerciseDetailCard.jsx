@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, capitalize, Stack, Typography } from '@mui/material'
 
 const ExerciseDetailCard = ({ singleExercise }) => {
+    console.log(singleExercise.equipment)
     return (
         <Box>
             <Stack

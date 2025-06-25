@@ -20,7 +20,8 @@ const SimilarExerciseByEquipment = ({ exercisesByEquipment }) => {
             })
         }
     }
-
+        console.log(exercisesByEquipment.length)
+    
     if (!exercisesByEquipment || exercisesByEquipment.length === 0) {
         return <div>Loading...</div>;
     }
