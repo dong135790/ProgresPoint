@@ -1,5 +1,11 @@
 package com.example.fitness.controller;
 
+import com.example.fitness.model.Exercise;
+import com.example.fitness.model.WorkoutPlan;
+import com.example.fitness.config.StartUp;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +25,9 @@ public class ExerciseController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private StartUp startUp;
 
     public HttpEntity<String> getHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
@@ -106,5 +115,34 @@ public class ExerciseController {
             url, HttpMethod.GET, getHttpEntity(), String.class
         );
         return ResponseEntity.ok(response.getBody());
+    }
+
+    // Mapping of backend
+    @GetMapping("/api/exercises/model/{id}")
+    public ResponseEntity<Exercise> getSingleExerciseAsModel(@PathVariable String id) {
+        String url = "https://exercisedb.p.rapidapi.com/exercises/exercise/" + id;
+        ResponseEntity<Exercise> response = restTemplate.exchange(
+            url, HttpMethod.GET, getHttpEntity(), Exercise.class
+        );
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    // Mapping of startup
+    @GetMapping("/api/exercises/start")
+    public ResponseEntity<List<Exercise>> getStartUpClass() {
+        List<Exercise> exercises = startUp.getListOfExercises();
+        if (exercises.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(exercises);
+    }
+
+    @GetMapping("/api/exercises/mock")
+    public ResponseEntity<WorkoutPlan> getWorkoutPlanClass() {
+        WorkoutPlan workout = startUp.getWorkoutPlan();
+        if (workout.getExerciseList().isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(workout);
     }
 }

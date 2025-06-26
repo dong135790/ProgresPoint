@@ -1,0 +1,70 @@
+[ {
+  "exercise" : {
+    "bodyPart" : "upper arms",
+    "equipment" : "dumbbell",
+    "gifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
+    "id" : "0285",
+    "name" : "dumbbell alternate biceps curl",
+    "target" : "biceps",
+    "secondaryMuscles" : [ "forearms" ],
+    "instructions" : [ "Stand up straight with a dumbbell in each hand, palms facing forward and arms fully extended.", "Keeping your upper arms stationary, exhale and curl the weights while contracting your biceps.", "Continue to raise the dumbbells until your biceps are fully contracted and the dumbbells are at shoulder level.", "Hold the contracted position for a brief pause as you squeeze your biceps.", "Inhale and slowly begin to lower the dumbbells back to the starting position.", "Repeat for the desired number of repetitions, alternating arms." ],
+    "description" : "The dumbbell alternate biceps curl is a classic arm exercise that targets the biceps and also engages the forearms. It involves curling dumbbells alternately while keeping the upper arms stationary, focusing on controlled movement and muscle contraction.",
+    "difficulty" : "beginner",
+    "category" : "strength"
+  },
+  "sets" : 5,
+  "reps" : 10,
+  "notes" : "Stored",
+  "exerciseId" : "0285",
+  "exerciseName" : "dumbbell alternate biceps curl",
+  "exerciseBodyPart" : "upper arms",
+  "exerciseEquipment" : "dumbbell",
+  "exerciseGifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
+  "exerciseTarget" : "biceps"
+}, {
+  "exercise" : {
+    "bodyPart" : "shoulders",
+    "equipment" : "dumbbell",
+    "gifUrl" : "https://v2.exercisedb.io/image/gifKLk4L3-9UOW",
+    "id" : "0286",
+    "name" : "dumbbell alternate side press",
+    "target" : "delts",
+    "secondaryMuscles" : [ "triceps", "core" ],
+    "instructions" : [ "Stand with your feet shoulder-width apart, holding a dumbbell in each hand at shoulder height.", "Press one dumbbell overhead while keeping the other dumbbell at shoulder height.", "Lower the pressed dumbbell back to shoulder height while pressing the other dumbbell overhead.", "Continue alternating sides for the desired number of repetitions." ],
+    "description" : "The dumbbell alternate side press is a shoulder exercise where you press one dumbbell overhead at a time, alternating sides. This movement targets the deltoids and also engages the triceps and core for stability.",
+    "difficulty" : "intermediate",
+    "category" : "strength"
+  },
+  "sets" : 5,
+  "reps" : 10,
+  "notes" : "Stored",
+  "exerciseId" : "0286",
+  "exerciseName" : "dumbbell alternate side press",
+  "exerciseBodyPart" : "shoulders",
+  "exerciseEquipment" : "dumbbell",
+  "exerciseGifUrl" : "https://v2.exercisedb.io/image/gifKLk4L3-9UOW",
+  "exerciseTarget" : "delts"
+}, {
+  "exercise" : {
+    "bodyPart" : "upper arms",
+    "equipment" : "dumbbell",
+    "gifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
+    "id" : "0285",
+    "name" : "dumbbell alternate biceps curl",
+    "target" : "biceps",
+    "secondaryMuscles" : [ "forearms" ],
+    "instructions" : [ "Stand up straight with a dumbbell in each hand, palms facing forward and arms fully extended.", "Keeping your upper arms stationary, exhale and curl the weights while contracting your biceps." ],
+    "description" : "Classic arm exercise.",
+    "difficulty" : "beginner",
+    "category" : "strength"
+  },
+  "sets" : 4,
+  "reps" : 12,
+  "notes" : "Good warm-up",
+  "exerciseId" : "0285",
+  "exerciseName" : "dumbbell alternate biceps curl",
+  "exerciseBodyPart" : "upper arms",
+  "exerciseEquipment" : "dumbbell",
+  "exerciseGifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
+  "exerciseTarget" : "biceps"
+} ]

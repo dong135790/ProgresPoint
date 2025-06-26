@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { Box, Stack, Typography, IconButton, Divider, capitalize, colors } from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-
 import { Link } from 'react-router-dom'
 
 const SimilarExercise = ({ similarExercises }) => {
