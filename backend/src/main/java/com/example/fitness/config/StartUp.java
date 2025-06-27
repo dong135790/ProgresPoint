@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class StartUp {
 
-    List<Exercise> listOfExercises;
+    List<SingleExercise> listOfExercises;
     
     WorkoutPlan initialPlan;
 
@@ -22,18 +22,16 @@ public class StartUp {
     public void start() {
         listOfExercises = JsonUtil.createListFromJson();
         System.out.println("Json successfully loaded " + listOfExercises.size());
-
         initialPlan = new WorkoutPlan("Step One");
 
-        for (Exercise ex: listOfExercises) {
-            SingleExercise exercise = new SingleExercise(ex, 5, 10, "Stored");
-            initialPlan.addToExerciseList(exercise);
+        for (SingleExercise ex: listOfExercises) {
+            initialPlan.addToExerciseList(ex);
         }
 
         System.out.println(initialPlan.toString());
     }
 
-    public List<Exercise> getListOfExercises() { return this.listOfExercises; }
+    public List<SingleExercise> getListOfExercises() { return this.listOfExercises; }
 
     public WorkoutPlan getWorkoutPlan() { return this.initialPlan; }
 }

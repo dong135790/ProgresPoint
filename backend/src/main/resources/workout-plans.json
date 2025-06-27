@@ -14,13 +14,7 @@
   },
   "sets" : 5,
   "reps" : 10,
-  "notes" : "Stored",
-  "exerciseId" : "0285",
-  "exerciseName" : "dumbbell alternate biceps curl",
-  "exerciseBodyPart" : "upper arms",
-  "exerciseEquipment" : "dumbbell",
-  "exerciseGifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
-  "exerciseTarget" : "biceps"
+  "notes" : "Stored"
 }, {
   "exercise" : {
     "bodyPart" : "shoulders",
@@ -37,13 +31,7 @@
   },
   "sets" : 5,
   "reps" : 10,
-  "notes" : "Stored",
-  "exerciseId" : "0286",
-  "exerciseName" : "dumbbell alternate side press",
-  "exerciseBodyPart" : "shoulders",
-  "exerciseEquipment" : "dumbbell",
-  "exerciseGifUrl" : "https://v2.exercisedb.io/image/gifKLk4L3-9UOW",
-  "exerciseTarget" : "delts"
+  "notes" : "Stored"
 }, {
   "exercise" : {
     "bodyPart" : "upper arms",
@@ -60,11 +48,22 @@
   },
   "sets" : 4,
   "reps" : 12,
-  "notes" : "Good warm-up",
-  "exerciseId" : "0285",
-  "exerciseName" : "dumbbell alternate biceps curl",
-  "exerciseBodyPart" : "upper arms",
-  "exerciseEquipment" : "dumbbell",
-  "exerciseGifUrl" : "https://v2.exercisedb.io/image/emDCW8yuS3YynE",
-  "exerciseTarget" : "biceps"
+  "notes" : "Good warm-up"
+}, {
+  "exercise" : {
+    "bodyPart" : "chest",
+    "equipment" : "dumbbell",
+    "gifUrl" : "https://v2.exercisedb.io/image/qZUFNOcLB7h1AG",
+    "id" : "0288",
+    "name" : "dumbbell around pullover",
+    "target" : "pectorals",
+    "secondaryMuscles" : [ "triceps", "latissimus dorsi" ],
+    "instructions" : [ "Lie flat on a bench with your head at one end and your feet firmly on the ground.", "Hold a dumbbell with both hands and extend your arms straight above your chest.", "Keeping your arms straight, slowly lower the dumbbell behind your head in an arc motion.", "Pause for a moment at the bottom, then raise the dumbbell back to the starting position.", "Repeat for the desired number of repetitions." ],
+    "description" : "The dumbbell around pullover is a chest exercise performed lying on a bench, where you lower a dumbbell behind your head in an arc and then return to the starting position. It primarily targets the pectorals, with secondary emphasis on the triceps and latissimus dorsi.",
+    "difficulty" : "intermediate",
+    "category" : "strength"
+  },
+  "sets" : 4,
+  "reps" : 12,
+  "notes" : "Good warm-up 2"
 } ]

@@ -28,17 +28,17 @@ public class SingleExercise {
     
     public String getNotes() { return this.notes; }
 
-    public String getExerciseId() { return exercise.getId(); }
+    // public String getExerciseId() { return exercise.getId(); }
 
-    public String getExerciseName() { return exercise.getName(); }
+    // public String getExerciseName() { return exercise.getName(); }
 
-    public String getExerciseBodyPart() { return exercise.getBodyPart(); }
+    // public String getExerciseBodyPart() { return exercise.getBodyPart(); }
 
-    public String getExerciseEquipment() { return exercise.getEquipment(); }
+    // public String getExerciseEquipment() { return exercise.getEquipment(); }
 
-    public String getExerciseGifUrl() { return exercise.getGifUrl(); }
+    // public String getExerciseGifUrl() { return exercise.getGifUrl(); }
 
-    public String getExerciseTarget() { return exercise.getTarget(); }
+    // public String getExerciseTarget() { return exercise.getTarget(); }
 
     public void setExercise(Exercise exerciseData) { this.exercise = exerciseData; }
 

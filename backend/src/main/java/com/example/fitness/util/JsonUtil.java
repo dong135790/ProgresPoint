@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import com.example.fitness.model.Exercise;
+import com.example.fitness.model.SingleExercise;
 
 import java.io.File;
 import java.io.InputStream;
@@ -16,11 +17,12 @@ import org.springframework.core.io.ClassPathResource;
 
 public class JsonUtil {
 
-    public static List<Exercise> createListFromJson() {
+    public static List<SingleExercise> createListFromJson() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             InputStream inputStream = new ClassPathResource("workout-plans.json").getInputStream();
-            return objectMapper.readValue(inputStream, new TypeReference<List<Exercise>>() {});
+            List<SingleExercise> list = objectMapper.readValue(inputStream, new TypeReference<List<SingleExercise>>() {});
+            return list;
         } catch (IOException error) {
             System.out.println("Error reading JSON File: " + error);
             return new ArrayList<>();

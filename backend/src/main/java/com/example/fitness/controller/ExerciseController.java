@@ -1,6 +1,7 @@
 package com.example.fitness.controller;
 
 import com.example.fitness.model.Exercise;
+import com.example.fitness.model.SingleExercise;
 import com.example.fitness.model.WorkoutPlan;
 import com.example.fitness.config.StartUp;
 
@@ -129,8 +130,8 @@ public class ExerciseController {
 
     // Mapping of startup
     @GetMapping("/api/exercises/start")
-    public ResponseEntity<List<Exercise>> getStartUpClass() {
-        List<Exercise> exercises = startUp.getListOfExercises();
+    public ResponseEntity<List<SingleExercise>> getStartUpClass() {
+        List<SingleExercise> exercises = startUp.getListOfExercises();
         if (exercises.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
