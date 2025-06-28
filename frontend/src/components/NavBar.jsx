@@ -42,6 +42,14 @@ const NavBar = () => {
                         Exercises
                     </Typography>
                 </Link>
+                <Link className='navTextColor hover-underline' to="/plan">
+                    <Typography
+                        fontWeight={600}
+                        fontSize={20}
+                    >
+                        myPlan
+                    </Typography>
+                </Link>
             </Stack>
         </Stack>
     </Box>

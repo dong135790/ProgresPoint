@@ -130,8 +130,8 @@ public class ExerciseController {
 
     // Mapping of startup
     @GetMapping("/api/exercises/start")
-    public ResponseEntity<List<SingleExercise>> getStartUpClass() {
-        List<SingleExercise> exercises = startUp.getListOfExercises();
+    public ResponseEntity<List<WorkoutPlan>> getStartUpClass() {
+        List<WorkoutPlan> exercises = startUp.getAllPlans();
         if (exercises.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

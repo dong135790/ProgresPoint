@@ -17,11 +17,11 @@ import org.springframework.core.io.ClassPathResource;
 
 public class JsonUtil {
 
-    public static List<SingleExercise> createListFromJson() {
+    public static List<WorkoutPlan> createListFromJson() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             InputStream inputStream = new ClassPathResource("workout-plans.json").getInputStream();
-            List<SingleExercise> list = objectMapper.readValue(inputStream, new TypeReference<List<SingleExercise>>() {});
+            List<WorkoutPlan> list = objectMapper.readValue(inputStream, new TypeReference<List<WorkoutPlan>>() {});
             return list;
         } catch (IOException error) {
             System.out.println("Error reading JSON File: " + error);
@@ -29,11 +29,11 @@ public class JsonUtil {
         }
     }
 
-    public static void writePlanToJson(WorkoutPlan plan) {
+    public static void writePlanToJson(List<WorkoutPlan> plan) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new File("src/main/resources/workout-plans.json");
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, plan.getExerciseList());
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, plan);
             System.out.println("Successfully wrote to JSON");
         } catch (IOException e) {
             System.out.println("Error writing JSON File: " + e.getMessage());

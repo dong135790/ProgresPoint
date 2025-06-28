@@ -28,16 +28,30 @@ public class WorkoutPlanController {
     private StartUp startUp;
 
     @GetMapping
-    public ResponseEntity<WorkoutPlan> getPlan() {
-        return ResponseEntity.ok(startUp.getWorkoutPlan());
+    public ResponseEntity<List<WorkoutPlan>> getPlan() {
+        return ResponseEntity.ok(startUp.getAllPlans());
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<String> addExercise(@RequestBody SingleExercise singleExercise) {
-        WorkoutPlan plan = startUp.getWorkoutPlan();
-        plan.addToExerciseList(singleExercise);
-        JsonUtil.writePlanToJson(plan);
-        return ResponseEntity.ok("Exercise added to plan");
+    @PostMapping("/add/{index}")
+    public ResponseEntity<String> addExercise(
+            @PathVariable int index,
+            @RequestBody SingleExercise singleExercise) {
+
+        List<WorkoutPlan> plans = startUp.getAllPlans();
+
+        if (plans.isEmpty() || index < 0 || index >= plans.size()) {
+            return ResponseEntity.badRequest().body("Invalid plan index.");
+        }
+
+        WorkoutPlan targetPlan = plans.get(index);
+        if (targetPlan.getExerciseList().size() < 10) {
+            targetPlan.addToExerciseList(singleExercise);
+            JsonUtil.writePlanToJson(plans);
+            return ResponseEntity.ok("Exercise added to plan");
+        } else {
+            return ResponseEntity.badRequest().body("Too many exercises in workout");
+        }
+
     }
 
     @DeleteMapping("/remove/{index}")

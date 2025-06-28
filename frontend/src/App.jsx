@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import HomePage from './pages/HomePage'
 import ExercisePage from './pages/ExercisePage'
 import SingleExercisePage from './pages/SingleExercisePage'
+import WorkoutPlanPage from './pages/WorkoutPlanPage'
 import { Box } from '@mui/material'
 import './App.css'
 
@@ -37,6 +38,9 @@ function App() {
           <Route path="/exercise/:id" element={<SingleExercisePage
             exercises={exercises}
           />} />
+          <Route path="/plan" element={<WorkoutPlanPage
+            exercises={exercises}
+          />}/>
         </Routes>
       </Box>
     </>

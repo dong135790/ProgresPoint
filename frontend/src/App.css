@@ -86,6 +86,36 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
+.workout-exercise-card {
+  width: 200px;
+  height: auto;
+  background: #fff;
+  border-top: 4px solid #20B2AA;
+  border-radius: 0px 0px 20px 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 10px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.single-workout-exercise-card {
+  width: 150px;
+  height: auto;
+  background: #fff;
+  border-top: 4px solid #20B2AA;
+  border-radius: 0px 0px 20px 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 10px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
 .exercise-card img {
   height: 326px;
 }

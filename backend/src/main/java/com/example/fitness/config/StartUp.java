@@ -13,25 +13,20 @@ import java.util.List;
 @Component
 public class StartUp {
 
-    List<SingleExercise> listOfExercises;
+    List<WorkoutPlan> allWorkoutPlans;
     
     WorkoutPlan initialPlan;
 
     // Spring immediately starts this when it finishes setting up
     @PostConstruct
     public void start() {
-        listOfExercises = JsonUtil.createListFromJson();
-        System.out.println("Json successfully loaded " + listOfExercises.size());
-        initialPlan = new WorkoutPlan("Step One");
+        allWorkoutPlans = JsonUtil.createListFromJson();
+        System.out.println("Json successfully loaded " + allWorkoutPlans.size());
 
-        for (SingleExercise ex: listOfExercises) {
-            initialPlan.addToExerciseList(ex);
-        }
-
-        System.out.println(initialPlan.toString());
+        System.out.println(allWorkoutPlans.toString());
     }
 
-    public List<SingleExercise> getListOfExercises() { return this.listOfExercises; }
+    public List<WorkoutPlan> getAllPlans() { return this.allWorkoutPlans; }
 
     public WorkoutPlan getWorkoutPlan() { return this.initialPlan; }
 }
