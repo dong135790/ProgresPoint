@@ -140,34 +140,17 @@
     "exercise" : {
       "bodyPart" : "waist",
       "equipment" : "assisted",
-      "gifUrl" : "https://v2.exercisedb.io/image/g3T6YjImcpijrW",
-      "id" : "0010",
-      "name" : "assisted hanging knee raise with throw down",
+      "gifUrl" : "https://v2.exercisedb.io/image/yYQ0r5dMhOti3H",
+      "id" : "0013",
+      "name" : "assisted lying leg raise with throw down",
       "target" : "abs",
-      "secondaryMuscles" : [ "hip flexors", "lower back" ],
-      "instructions" : [ "Hang from a pull-up bar with your arms fully extended and your palms facing away from you.", "Engage your core and lift your knees towards your chest, keeping your legs together.", "Once your knees are at chest level, explosively throw your legs down towards the ground, extending them fully.", "Allow your legs to swing back up and repeat the movement for the desired number of repetitions." ],
-      "description" : "The assisted hanging knee raise with throw down is an advanced core exercise that targets the abdominal muscles, with additional engagement of the hip flexors and lower back. The movement involves hanging from a pull-up bar, raising the knees to the chest, and then explosively throwing the legs downward, requiring significant core strength, coordination, and control.",
-      "difficulty" : "advanced",
+      "secondaryMuscles" : [ "hip flexors", "quadriceps" ],
+      "instructions" : [ "Lie flat on your back with your legs extended and your arms by your sides.", "Place your hands under your glutes for support.", "Engage your core and lift your legs off the ground, keeping them straight.", "Raise your legs until they are perpendicular to the ground.", "Lower your legs back down to the starting position.", "Simultaneously, throw your legs down towards the ground, keeping them straight.", "Raise your legs back up to the starting position.", "Repeat for the desired number of repetitions." ],
+      "description" : "The assisted lying leg raise with throw down is an abdominal exercise that targets the abs while also engaging the hip flexors and quadriceps. The movement involves raising the legs while lying on your back, then forcefully lowering them (throwing them down) and raising them again, often with a partner providing resistance or assistance.",
+      "difficulty" : "intermediate",
       "category" : "strength"
     },
-    "sets" : 3,
-    "reps" : 1,
-    "notes" : ""
-  }, {
-    "exercise" : {
-      "bodyPart" : "upper legs",
-      "equipment" : "body weight",
-      "gifUrl" : "https://v2.exercisedb.io/image/FWjoPwD5HIRXvB",
-      "id" : "0020",
-      "name" : "balance board",
-      "target" : "quads",
-      "secondaryMuscles" : [ "calves", "hamstrings", "glutes" ],
-      "instructions" : [ "Place the balance board on a flat surface.", "Step onto the balance board with one foot, ensuring it is centered.", "Slowly shift your weight onto the foot on the balance board, keeping your core engaged.", "Maintain your balance and stability as you hold the position for a desired amount of time.", "Repeat the exercise with the other foot." ],
-      "description" : "The balance board exercise involves standing on a balance board with one foot, engaging the core and lower body muscles to maintain stability and balance. This exercise primarily targets the quads, while also engaging the calves, hamstrings, and glutes as secondary muscles.",
-      "difficulty" : "intermediate",
-      "category" : "balance"
-    },
-    "sets" : 2,
+    "sets" : 1,
     "reps" : 1,
     "notes" : ""
   } ]
@@ -175,37 +158,20 @@
   "name" : "Workout Two",
   "exerciseList" : [ {
     "exercise" : {
-      "bodyPart" : "shoulders",
-      "equipment" : "dumbbell",
-      "gifUrl" : "https://v2.exercisedb.io/image/zcebE0xsJPINlZ",
-      "id" : "0287",
-      "name" : "dumbbell arnold press v. 2",
-      "target" : "delts",
-      "secondaryMuscles" : [ "triceps", "upper chest" ],
-      "instructions" : [ "Sit on a bench with back support and hold a dumbbell in each hand at shoulder level, palms facing your body and elbows bent.", "Press the dumbbells upward until your arms are fully extended and your palms are facing forward.", "Rotate your wrists as you lift, so that your palms end up facing forward at the top of the movement.", "Pause for a moment at the top, then slowly lower the dumbbells back to the starting position.", "Repeat for the desired number of repetitions." ],
-      "description" : "The dumbbell Arnold press v. 2 is a shoulder exercise that involves pressing dumbbells overhead while rotating the wrists, targeting the deltoids and engaging the triceps and upper chest.",
+      "bodyPart" : "upper legs",
+      "equipment" : "barbell",
+      "gifUrl" : "https://v2.exercisedb.io/image/tbEYTlMxcLGr2M",
+      "id" : "0046",
+      "name" : "barbell hack squat",
+      "target" : "glutes",
+      "secondaryMuscles" : [ "quadriceps", "hamstrings", "calves" ],
+      "instructions" : [ "Start by standing with your feet shoulder-width apart and your toes slightly turned out.", "Hold the barbell behind your legs, resting it on your upper thighs.", "Lower your body by bending at the knees and hips, keeping your back straight and your chest up.", "Continue lowering until your thighs are parallel to the ground, or as low as you can comfortably go.", "Pause for a moment, then push through your heels to return to the starting position.", "Repeat for the desired number of repetitions." ],
+      "description" : "The barbell hack squat is a lower body strength exercise that targets the glutes, quadriceps, hamstrings, and calves. It involves holding a barbell behind the legs and performing a squat motion, emphasizing the posterior chain and quadriceps.",
       "difficulty" : "intermediate",
       "category" : "strength"
     },
-    "sets" : 3,
-    "reps" : 12,
+    "sets" : 2,
+    "reps" : 1,
     "notes" : ""
-  }, {
-    "exercise" : {
-      "bodyPart" : "chest",
-      "equipment" : "dumbbell",
-      "gifUrl" : "https://v2.exercisedb.io/image/qZUFNOcLB7h1AG",
-      "id" : "0288",
-      "name" : "dumbbell around pullover",
-      "target" : "pectorals",
-      "secondaryMuscles" : [ "triceps", "latissimus dorsi" ],
-      "instructions" : [ "Lie flat on a bench with your head at one end and your feet firmly on the ground.", "Hold a dumbbell with both hands and extend your arms straight above your chest.", "Keeping your arms straight, slowly lower the dumbbell behind your head in an arc motion.", "Pause for a moment at the bottom, then raise the dumbbell back to the starting position.", "Repeat for the desired number of repetitions." ],
-      "description" : "The dumbbell around pullover is a chest exercise performed lying on a bench, where you lower a dumbbell behind your head in an arc and then return to the starting position. It primarily targets the pectorals, with secondary emphasis on the triceps and latissimus dorsi.",
-      "difficulty" : "intermediate",
-      "category" : "strength"
-    },
-    "sets" : 4,
-    "reps" : 12,
-    "notes" : "Good warm-up 2"
   } ]
 } ]

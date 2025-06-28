@@ -54,23 +54,30 @@ public class WorkoutPlanController {
 
     }
 
-    @DeleteMapping("/remove/{index}")
-    public ResponseEntity<String> removeExercise(@PathVariable int index) {
+    @DeleteMapping("/remove/{workoutIndex}/{exerciseIndex}")
+    public ResponseEntity<String> removeExercise(@PathVariable int workoutIndex, @PathVariable int exerciseIndex) {
         try {
-            startUp.getWorkoutPlan().removeFromExerciseList(index);
-            return ResponseEntity.ok("Exercise removed");
+            List<WorkoutPlan> plans = startUp.getAllPlans();
+            System.out.println("WorkoutPlan size: " + plans.size());
+            if (workoutIndex < 0 || workoutIndex >= plans.size()) {
+                return ResponseEntity.badRequest().body("Workout index is out of bounds");
+            }
+
+            WorkoutPlan singlePlan = plans.get(workoutIndex);
+            System.out.println(singlePlan.getExerciseList().size());
+            if (exerciseIndex < 0 || exerciseIndex >= singlePlan.getExerciseList().size()) {
+                return ResponseEntity.badRequest().body("Exercise index is out of bounds");
+            }
+
+            singlePlan.removeFromExerciseList(exerciseIndex);
+            JsonUtil.writePlanToJson(plans);
+            System.out.println(singlePlan.getExerciseList().size());
+
+            return ResponseEntity.ok("Exercise Removed from workout plan");
+
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Invalid index");
+            return ResponseEntity.badRequest().body("Failed to delete");
         }
     }
 
-    @PutMapping("/update/{index}")
-    public ResponseEntity<String> updateExercise(@PathVariable int index, @RequestBody SingleExercise updatedExercise) {
-        WorkoutPlan plan = startUp.getWorkoutPlan();
-        if (index < 0 || index >= plan.getExerciseList().size()) {
-            return ResponseEntity.badRequest().body("Index out of bounds");
-        }
-        plan.getExerciseList().set(index, updatedExercise);
-        return ResponseEntity.ok("Exercise updated");
-    }
 }

@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Stack, Typography, Button, Link } from '@mui/material'
 
-const SingleWorkoutPlan = ({ plans, workoutIndex }) => {
+const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
     const [plan, setPlan] = useState(null)
+    const [exerciseIndex, setExerciseIndex] = useState(0);
 
+    const removeExercise = async (exerciseIndex) => {
+        const result = await fetch(`http://localhost:8080/api/plan/remove/${workoutIndex}/${exerciseIndex}`, {
+            method: 'DELETE'
+        })
+        if (result.ok) {
+            alert('Workout Deleted')
+            workoutPlan()
+        } else {
+            alert('Could not delete exercise')
+        }
+    }
     useEffect(() => {
         if (plans.length > 0 && workoutIndex >= 0) {
             const desiredPlan = plans[workoutIndex]
@@ -82,6 +94,9 @@ const SingleWorkoutPlan = ({ plans, workoutIndex }) => {
                                         paddingX: '16px',
                                         textTransform: 'capitalize'
                                     }}
+                                    value={index}
+                                    key={index}
+                                    onClick={() => removeExercise(index)}
                                 >
                                     <Typography
                                         sx={{
