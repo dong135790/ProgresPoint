@@ -53,7 +53,8 @@ const WorkoutPlanPage = ({ exercises }) => {
                 {/* Right Side */}
                 <Box sx={{}}>
                     <SingleWorkoutPlan
-                        workoutPlan={workoutPlan} plans={plans} workoutIndex={workoutIndex} />
+                        workoutPlan={workoutPlan} plans={plans} workoutIndex={workoutIndex}
+                        />
                 </Box>
             </Box>
             <Box mt={20}>

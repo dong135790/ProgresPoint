@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Stack, Typography, Button, Link } from '@mui/material'
+import { Box, Stack, Typography, Button, Link, containerClasses } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
+    const navigate = useNavigate();
     const [plan, setPlan] = useState(null)
     const [exerciseIndex, setExerciseIndex] = useState(0);
 
@@ -24,25 +26,52 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
         }
     }, [plans, workoutIndex])
 
+    const handleStartWorkout = () => {
+        navigate(`/workout/start/${workoutIndex}`);
+    };
+
     if (!plan) {
         return <Typography>Loading plan...</Typography>
     }
 
     return (
         <Box>
-            <Typography
+            <Box
                 sx={{
-                    fontWeight: 600,
-                    fontSize: '20px',
-                    textAlign: 'center',
-                    mb: 5
+                    mb: 10,
+                    position: 'relative',
+                    textAlign: 'center'
                 }}
+
             >
-                {plan.name}
-            </Typography>
-            <Stack 
+                <Typography
+                    sx={{
+                        fontWeight: 600,
+                        fontSize: '20px',
+                        textAlign: 'center',
+                    }}
+                >
+                    {plan.name}
+                </Typography>
+                <Button
+                    sx={{
+                        position: 'absolute',
+                        border: 1,
+                        borderRadius: '20px',
+                        textTransform: 'capitalize',
+                        bgcolor: '#fff',
+                        right: 0,
+                        fontWeight: 400,
+                        fontSize: '18px'
+                    }}
+                onClick={() => handleStartWorkout()}
+                >
+                    Begin Workout
+                </Button>
+            </Box>
+            <Stack
                 direction={'row'}
-                sx={{ 
+                sx={{
                     gap: { lg: '30px', xs: '10px' },
                     display: 'grid',
                     gridTemplateColumns: 'repeat(5,1fr)',
@@ -53,7 +82,16 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
             >
                 {plan.exerciseList.map((exercise, index) => (
                     <Box className='single-workout-exercise-card'>
-                        <img src={exercise.exercise.gifUrl} alt={exercise.exercise.name} loading='lazy' />
+                        <img src={exercise.exercise.gifUrl} alt={exercise.exercise.name} 
+                            loading='lazy'
+                            style={{ 
+                                width: '100%',
+                                maxWidth: '140px',
+                                height: '140px',
+                                objectFit: 'contain',
+                                margin: '0 auto'
+                            }}
+                            />
                         <Stack direction={'column'}>
                             <Stack direction={'row'}>
                                 <Button
@@ -63,7 +101,8 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
                                         background: '#9765a7',
                                         fontSize: '14px',
                                         borderRadius: '20px',
-                                        textTransform: 'capitalize'
+                                        textTransform: 'capitalize',
+                                        maxWidth: '120px'
                                     }}
                                 >
                                     {exercise.exercise.bodyPart}
@@ -115,6 +154,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
                                     fontWeight: 400,
                                     fontSize: '14px',
                                     textAlign: 'center',
+                                    textTransform: 'capitalize'
                                 }}
                             >
                                 {exercise.exercise.name}

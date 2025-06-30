@@ -102,8 +102,8 @@ body {
 }
 
 .single-workout-exercise-card {
-  width: 150px;
-  height: auto;
+  width: 180px;
+  min-height: '320px';
   background: #fff;
   border-top: 4px solid #20B2AA;
   border-radius: 0px 0px 20px 20px;
@@ -114,6 +114,8 @@ body {
   padding-bottom: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+  align-items: center;
+  min-height: '320px';
 }
 
 .exercise-card img {

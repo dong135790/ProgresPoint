@@ -5,12 +5,14 @@ import HomePage from './pages/HomePage'
 import ExercisePage from './pages/ExercisePage'
 import SingleExercisePage from './pages/SingleExercisePage'
 import WorkoutPlanPage from './pages/WorkoutPlanPage'
+import WorkoutSessionPage from './pages/WorkoutSessionPage'
 import { Box } from '@mui/material'
 import './App.css'
 
 function App() {
   const [exercises, setExercises] = useState([])
   const [allExercises, setAllExercises] = useState([])
+  const [plans, setPlans] = useState([])
 
   useEffect(() => {
     const allExercise = async () => {
@@ -22,6 +24,17 @@ function App() {
     }
     allExercise();
 
+  }, [])
+
+  const workoutPlan = async () => {
+    const res = await fetch('http://localhost:8080/api/plan');
+    const data = await res.json();
+    setPlans(data);
+    console.log("Backend Api ran")
+    console.log(data)
+  }
+  useEffect(() => {
+    workoutPlan();
   }, [])
 
   return (
@@ -40,7 +53,12 @@ function App() {
           />} />
           <Route path="/plan" element={<WorkoutPlanPage
             exercises={exercises}
-          />}/>
+          />} />
+          <Route path="/workout/start/:id"
+            element={<WorkoutSessionPage
+              plans={plans}
+            />} />
+
         </Routes>
       </Box>
     </>
