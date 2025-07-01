@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Box, Stack, Typography, Button, Checkbox } from '@mui/material'
 
-const WorkoutSessionStart = ({ workoutPlan }) => {
+const WorkoutSessionStart = ({ workoutPlan, workoutPlanId }) => {
     const [completed, setCompleted] = useState(new Set());
     const { id } = useParams();
     console.log(workoutPlan);
@@ -18,7 +18,7 @@ const WorkoutSessionStart = ({ workoutPlan }) => {
     };
     useEffect(() => {
         const fetchPlan = async () => {
-            const response = await fetch(`http://localhost:8080/api/plan/${workoutPlan.id}`);
+            const response = await fetch(`http://localhost:8080/api/plan/${workoutPlanId}`);
             const data = await response.json();
             setWorkoutPlan(data);
         };

@@ -13,6 +13,7 @@ function App() {
   const [exercises, setExercises] = useState([])
   const [allExercises, setAllExercises] = useState([])
   const [workoutData, setWorkoutData] = useState([])
+  const [workoutPlanId, setWorkoutPlanId] = useState(0);
 
   useEffect(() => {
     const allExercise = async () => {
@@ -49,11 +50,11 @@ function App() {
             exercises={exercises}
           />} />
           <Route path="/plan" element={<WorkoutPlanPage
-            exercises={exercises} workoutData={workoutData}
+            exercises={exercises} workoutData={workoutData} workoutPlanId={workoutPlanId} setWorkoutPlanId={setWorkoutPlanId}
           />} />
           <Route path="/workout/start/:id"
             element={<WorkoutSessionPage
-              workoutData={workoutData}
+              workoutData={workoutData} workoutPlanId={workoutPlanId}
             />} />
 
         </Routes>

@@ -4,7 +4,7 @@ import { Box, Stack, Typography, Button } from '@mui/material'
 
 import WorkoutSessionStart from '../components/workoutPlan/WorkoutSessionStart'
 
-const WorkoutSessionPage = ({ workoutData }) => {
+const WorkoutSessionPage = ({ workoutData, workoutPlanId }) => {
     const { id } = useParams();
     const workoutPlan = workoutData[parseInt(id)]
 
@@ -12,7 +12,7 @@ const WorkoutSessionPage = ({ workoutData }) => {
 
     return (
         <Box>
-            <WorkoutSessionStart workoutPlan={workoutPlan}/>
+            <WorkoutSessionStart workoutPlan={workoutPlan} workoutPlanId={workoutPlanId}/>
         </Box>
     )
 }

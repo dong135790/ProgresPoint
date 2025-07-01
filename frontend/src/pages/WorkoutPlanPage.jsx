@@ -3,25 +3,24 @@ import { Box, Stack, Typography, Button } from '@mui/material'
 import WorkoutExerciseList from '../components/workoutPlan/WorkoutExerciseList'
 import SingleWorkoutPlan from '../components/workoutPlan/SingleWorkoutPlan'
 
-const WorkoutPlanPage = ({ exercises, workoutData }) => {
+const WorkoutPlanPage = ({ exercises, workoutData, workoutPlanId, setWorkoutPlanId }) => {
 
     const [plans, setPlans] = useState([])
     const [workoutIndex, setWorkoutIndex] = useState(0);
-    const [workoutPlanId, setWorkoutPlanId] = useState(0);
 
     const workoutPlan = async () => {
         const res = await fetch('http://localhost:8080/api/plan');
         const data = await res.json();
         setPlans(data);
-        setWorkoutPlanId(data[0].id)
+        // setWorkoutPlanId(data[0].id)
         console.log(data[0].id)
         // console.log("Fetched plans:", data); // <-- Add this
 
     }
     useEffect(() => {
         workoutPlan();
-        // setWorkoutPlanId(workoutData[0].id)
-    }, [])
+        console.log("WorkoutPlan ID"+workoutPlanId)
+    }, [workoutPlanId])
 
     if (!workoutData) {
         return (
@@ -56,7 +55,6 @@ const WorkoutPlanPage = ({ exercises, workoutData }) => {
                                 onClick={() => {
                                     setWorkoutIndex(index)
                                     setWorkoutPlanId(data.id)
-                                    console.log("WorkoutData: ", workoutData)
                                 }}
                             >
                                 {data.name}
