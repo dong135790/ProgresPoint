@@ -4,11 +4,11 @@ import { Box, Stack, Typography, Button } from '@mui/material'
 
 import WorkoutSessionStart from '../components/workoutPlan/WorkoutSessionStart'
 
-const WorkoutSessionPage = ({ plans }) => {
+const WorkoutSessionPage = ({ workoutData }) => {
     const { id } = useParams();
-    const workoutPlan = plans[parseInt(id)]
+    const workoutPlan = workoutData[parseInt(id)]
 
-    if (!plans) return <div>Workout not found</div>;
+    if (!workoutData) return <div>Workout not found</div>;
 
     return (
         <Box>

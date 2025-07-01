@@ -1,20 +1,27 @@
 package com.example.fitness.model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
 public class Exercise {
     
+    @Id
+    private Long id;
     private String bodyPart;
     private String equipment;
     private String gifUrl;
-    private String id;
     private String name;
     private String target;
-    private List<String> secondaryMuscles;
-    private List<String> instructions;
     private String description;
     private String difficulty;
     private String category;
+
+    @ElementCollection
+    private List<String> secondaryMuscles;
+    @ElementCollection
+    private List<String> instructions;
 
     public Exercise() {}
 
@@ -30,9 +37,9 @@ public class Exercise {
 
     public void setGifUrl(String gifUrl) { this.gifUrl = gifUrl; }
 
-    public String getId() { return this.id; }
+    public Long getId() { return this.id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() { return this.name; }
 

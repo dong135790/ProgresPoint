@@ -3,7 +3,7 @@ package com.example.fitness.controller;
 import com.example.fitness.model.Exercise;
 import com.example.fitness.model.SingleExercise;
 import com.example.fitness.model.WorkoutPlan;
-import com.example.fitness.config.StartUp;
+// import com.example.fitness.config.StartUp;
 
 import java.util.List;
 
@@ -27,8 +27,8 @@ public class ExerciseController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private StartUp startUp;
+    // @Autowired
+    // private StartUp startUp;
 
     public HttpEntity<String> getHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
@@ -128,22 +128,22 @@ public class ExerciseController {
         return ResponseEntity.ok(response.getBody());
     }
 
-    // Mapping of startup
-    @GetMapping("/api/exercises/start")
-    public ResponseEntity<List<WorkoutPlan>> getStartUpClass() {
-        List<WorkoutPlan> exercises = startUp.getAllPlans();
-        if (exercises.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(exercises);
-    }
+    // // Mapping of startup
+    // @GetMapping("/api/exercises/start")
+    // public ResponseEntity<List<WorkoutPlan>> getStartUpClass() {
+    //     List<WorkoutPlan> exercises = startUp.getAllPlans();
+    //     if (exercises.isEmpty()) {
+    //         return ResponseEntity.noContent().build();
+    //     }
+    //     return ResponseEntity.ok(exercises);
+    // }
 
-    @GetMapping("/api/exercises/mock")
-    public ResponseEntity<WorkoutPlan> getWorkoutPlanClass() {
-        WorkoutPlan workout = startUp.getWorkoutPlan();
-        if (workout.getExerciseList().isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(workout);
-    }
+    // @GetMapping("/api/exercises/mock")
+    // public ResponseEntity<WorkoutPlan> getWorkoutPlanClass() {
+    //     WorkoutPlan workout = startUp.getWorkoutPlan();
+    //     if (workout.getExerciseList().isEmpty()) {
+    //         return ResponseEntity.noContent().build();
+    //     }
+    //     return ResponseEntity.ok(workout);
+    // }
 }

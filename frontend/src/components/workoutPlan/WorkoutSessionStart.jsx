@@ -5,6 +5,7 @@ import { Box, Stack, Typography, Button, Checkbox } from '@mui/material'
 const WorkoutSessionStart = ({ workoutPlan }) => {
     const [completed, setCompleted] = useState(new Set());
     const { id } = useParams();
+    console.log(workoutPlan);
 
     const toggleComplete = (index) => {
         const updated = new Set(completed);
@@ -17,7 +18,7 @@ const WorkoutSessionStart = ({ workoutPlan }) => {
     };
     useEffect(() => {
         const fetchPlan = async () => {
-            const response = await fetch(`http://localhost:8080/api/plan/${id}`);
+            const response = await fetch(`http://localhost:8080/api/plan/${workoutPlan.id}`);
             const data = await response.json();
             setWorkoutPlan(data);
         };
@@ -28,7 +29,6 @@ const WorkoutSessionStart = ({ workoutPlan }) => {
     if (!workoutPlan) {
         return (<div>Workout Plan loading...</div>)
     }
-    console.log(workoutPlan)
     return (
         <Box>
             <Typography variant="h4" textAlign="center" mb={3}>

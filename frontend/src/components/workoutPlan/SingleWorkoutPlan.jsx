@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Box, Stack, Typography, Button, Link, containerClasses } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
+const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) => {
     const navigate = useNavigate();
     const [plan, setPlan] = useState(null)
     const [exerciseIndex, setExerciseIndex] = useState(0);
 
     const removeExercise = async (exerciseIndex) => {
-        const result = await fetch(`http://localhost:8080/api/plan/remove/${workoutIndex}/${exerciseIndex}`, {
+        const result = await fetch(`http://localhost:8080/api/plan/remove/${workoutPlanId}/${exerciseIndex}`, {
             method: 'DELETE'
         })
         if (result.ok) {
@@ -22,7 +22,6 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
         if (plans.length > 0 && workoutIndex >= 0) {
             const desiredPlan = plans[workoutIndex]
             setPlan(desiredPlan)
-            console.log("Selected Plan:", desiredPlan)
         }
     }, [plans, workoutIndex])
 
@@ -82,7 +81,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
             >
                 {plan.exerciseList.map((exercise, index) => (
                     <Box className='single-workout-exercise-card'>
-                        <img src={exercise.exercise.gifUrl} alt={exercise.exercise.name} 
+                        <img src={exercise?.exercise?.gifUrl} alt={exercise?.exercise?.name} 
                             loading='lazy'
                             style={{ 
                                 width: '100%',
@@ -105,7 +104,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
                                         maxWidth: '120px'
                                     }}
                                 >
-                                    {exercise.exercise.bodyPart}
+                                    {exercise?.exercise?.bodyPart}
                                 </Button>
                                 <Button
                                     sx={{
@@ -117,7 +116,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
                                         textTransform: 'capitalize'
                                     }}
                                 >
-                                    {exercise.exercise.target}
+                                    {exercise?.exercise?.target}
                                 </Button>
                             </Stack>
                             <Stack mt={1}>
@@ -157,7 +156,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex }) => {
                                     textTransform: 'capitalize'
                                 }}
                             >
-                                {exercise.exercise.name}
+                                {exercise?.exercise?.name}
                             </Typography>
                         </Stack>
                     </Box>

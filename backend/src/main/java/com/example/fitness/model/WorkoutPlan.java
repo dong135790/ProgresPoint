@@ -1,20 +1,35 @@
 package com.example.fitness.model;
 
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 public class WorkoutPlan {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<SingleExercise> listOfExercises = new ArrayList<>();
 
+    
     public WorkoutPlan() {}
 
     public WorkoutPlan(String name) {
         this.name = name;
         this.listOfExercises = new ArrayList<>();
     }
+
+
+    public Long getId() { return id; }
 
     public String getName() { return this.name; }
 

@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { Stack, Box, Pagination } from '@mui/material'
 import WorkoutExerciseCard from './WorkoutExerciseCard'
 
-const WorkoutExerciseList = ({ workoutPlan, exercises, workoutIndex }) => {
+const WorkoutExerciseList = ({ workoutPlan, workoutIndex, exercises, workoutPlanId }) => {
     const [currentPage, setCurrentPage] = useState(1)
-
     const indexOfLastExercise = currentPage * 10
     const indexOfFirstExercise = indexOfLastExercise - 10
     const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
@@ -32,7 +31,7 @@ const WorkoutExerciseList = ({ workoutPlan, exercises, workoutIndex }) => {
                 justifyContent={'center'}
             >
                 {currentExercises.map((singleExercise, index) => (
-                    <WorkoutExerciseCard key={index} workoutPlan={workoutPlan} workoutIndex={workoutIndex} exercise={singleExercise} />
+                    <WorkoutExerciseCard key={index} workoutPlan={workoutPlan} exercise={singleExercise} workoutPlanId={workoutPlanId} />
                 ))}
             </Stack>
             <Stack

@@ -12,7 +12,7 @@ import './App.css'
 function App() {
   const [exercises, setExercises] = useState([])
   const [allExercises, setAllExercises] = useState([])
-  const [plans, setPlans] = useState([])
+  const [workoutData, setWorkoutData] = useState([])
 
   useEffect(() => {
     const allExercise = async () => {
@@ -20,7 +20,6 @@ function App() {
       const data = await res.json();
       setExercises(data);
       setAllExercises(data);
-      console.log("Api ran")
     }
     allExercise();
 
@@ -29,9 +28,7 @@ function App() {
   const workoutPlan = async () => {
     const res = await fetch('http://localhost:8080/api/plan');
     const data = await res.json();
-    setPlans(data);
-    console.log("Backend Api ran")
-    console.log(data)
+    setWorkoutData(data);
   }
   useEffect(() => {
     workoutPlan();
@@ -52,11 +49,11 @@ function App() {
             exercises={exercises}
           />} />
           <Route path="/plan" element={<WorkoutPlanPage
-            exercises={exercises}
+            exercises={exercises} workoutData={workoutData}
           />} />
           <Route path="/workout/start/:id"
             element={<WorkoutSessionPage
-              plans={plans}
+              workoutData={workoutData}
             />} />
 
         </Routes>

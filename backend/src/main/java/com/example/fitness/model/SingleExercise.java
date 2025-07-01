@@ -1,11 +1,26 @@
 package com.example.fitness.model;
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
+
+@Entity
 public class SingleExercise {
     
-    private Exercise exercise;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int sets;
     private int reps;
     private String notes;
+
+    @ManyToOne
+    @JsonBackReference
+    private WorkoutPlan workoutPlan;
+
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Exercise exercise;
 
     public SingleExercise() {}
 
@@ -19,6 +34,7 @@ public class SingleExercise {
             this.notes = notes;
         }
     }
+    public Long getId() { return this.id; }
 
     public Exercise getExercise() { return this.exercise; }
 
@@ -47,4 +63,10 @@ public class SingleExercise {
     public void setReps(int number) { this.reps = number; }
 
     public void setNotes(String notes) { this.notes = notes; }
+
+    public void setWorkoutPlan(WorkoutPlan workoutPlan) {
+    this.workoutPlan = workoutPlan;
+    }
+
+    
 }

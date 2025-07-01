@@ -27,7 +27,6 @@ const SingleExercisePage = ({ exercises }) => {
         )
     })
 
-    console.log(exercises.length)
     const exercisesByEquipment = exercises.filter((exercise) => (
         exercise.equipment.toLowerCase() === data.equipment.toLowerCase()
         && exercise.id !== data.id

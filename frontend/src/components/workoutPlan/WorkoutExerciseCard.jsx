@@ -1,33 +1,32 @@
 import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Button, Stack, Typography, TextField } from '@mui/material'
-
-const WorkoutExerciseCard = ({ workoutPlan, workoutIndex, exercise }) => {
+const WorkoutExerciseCard = ({ workoutPlan, exercise, workoutPlanId }) => {
     const [set, setSet] = useState(0)
     const [rep, setRep] = useState(0)
-    const [workoutId, setWorkoutId] = useState(0)
-
+    // console.log("Final " + workoutPlanId)
     const addToPlan = async ( id ) => {
         const exerciseData = await fetch(`http://localhost:8080/api/exercises/exercise/${exercise.id}`)
         const data = await exerciseData.json()
 
         const exerciseInfo = {
             exercise: data,
-            sets: set,
-            reps: rep,
+            sets: parseInt(set, 10),
+            reps: parseInt(rep, 10),
             notes: ''
         }
-
-        const result = await fetch(`http://localhost:8080/api/plan/add/${workoutIndex}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(exerciseInfo)
+        console.log("Exercise Info ", JSON.stringify(exerciseInfo))
+        console.log("Workout Plan ID: " + workoutPlanId)
+        const result = await fetch(`http://localhost:8080/api/plan/add/${workoutPlanId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(exerciseInfo)
         });
 
+
         if (result.ok) {
-            console.log("Set: " + set + " Reps: " + rep)
             setRep(0)
             setSet(0)
             alert('Workout Added')

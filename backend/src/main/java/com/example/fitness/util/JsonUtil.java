@@ -17,7 +17,18 @@ import org.springframework.core.io.ClassPathResource;
 
 public class JsonUtil {
 
-    public static List<WorkoutPlan> createListFromJson() {
+    // public static List<WorkoutPlan> createListFromJson() {
+    //     try {
+    //         ObjectMapper objectMapper = new ObjectMapper();
+    //         InputStream inputStream = new ClassPathResource("workout-plans.json").getInputStream();
+    //         List<WorkoutPlan> list = objectMapper.readValue(inputStream, new TypeReference<List<WorkoutPlan>>() {});
+    //         return list;
+    //     } catch (IOException error) {
+    //         System.out.println("Error reading JSON File: " + error);
+    //         return new ArrayList<>();
+    //     }
+    // }
+    public static List<WorkoutPlan> readPlanFromJson() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             InputStream inputStream = new ClassPathResource("workout-plans.json").getInputStream();
