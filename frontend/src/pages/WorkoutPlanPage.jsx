@@ -36,6 +36,7 @@ const WorkoutPlanPage = ({ exercises, workoutData, workoutPlanId, setWorkoutPlan
                     sx={{
                         mt: '80px',
                         width: '200px',
+                        minWidth: '150px',
                         border: 'solid',
                         height: '50vh',
                         borderRadius: '20px'
@@ -64,7 +65,7 @@ const WorkoutPlanPage = ({ exercises, workoutData, workoutPlanId, setWorkoutPlan
                     </Stack>
                 </Box>
                 {/* Right Side */}
-                <Box sx={{}}>
+                <Box>
                     <SingleWorkoutPlan
                         workoutPlan={workoutPlan}
                         plans={plans}

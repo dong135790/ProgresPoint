@@ -30,7 +30,31 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) 
     };
 
     if (!plan) {
-        return <Typography>Loading plan...</Typography>
+        return (
+            <Typography
+                sx={{
+                    textAlign: 'center',
+                    mt: '300px',
+                    width: '1000px',
+                    fontWeight: '600px',
+                    fontSize: '20px'
+                }}
+            >Loading plan...
+            </Typography>
+        )
+    }
+    if (!workoutPlanId) {
+        return (
+            <Typography
+                sx={{
+                    textAlign: 'center',
+                    mt: '300px',
+                    width: '1000px',
+                    fontWeight: '600px',
+                    fontSize: '20px'
+                }}
+            >Please Select A Workout Plan!</Typography>
+        )
     }
 
     return (
@@ -48,6 +72,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) 
                         fontWeight: 600,
                         fontSize: '20px',
                         textAlign: 'center',
+                        minWidth: '1120px'
                     }}
                 >
                     {plan.name}
@@ -63,7 +88,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) 
                         fontWeight: 400,
                         fontSize: '18px'
                     }}
-                onClick={() => handleStartWorkout()}
+                    onClick={() => handleStartWorkout()}
                 >
                     Begin Workout
                 </Button>
@@ -81,16 +106,16 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) 
             >
                 {plan.exerciseList.map((exercise, index) => (
                     <Box className='single-workout-exercise-card'>
-                        <img src={exercise?.exercise?.gifUrl} alt={exercise?.exercise?.name} 
+                        <img src={exercise?.exercise?.gifUrl} alt={exercise?.exercise?.name}
                             loading='lazy'
-                            style={{ 
+                            style={{
                                 width: '100%',
                                 maxWidth: '140px',
                                 height: '140px',
                                 objectFit: 'contain',
                                 margin: '0 auto'
                             }}
-                            />
+                        />
                         <Stack direction={'column'}>
                             <Stack direction={'row'}>
                                 <Button

@@ -20,7 +20,6 @@ const WorkoutSessionStart = ({ workoutPlan, workoutPlanId }) => {
         const fetchPlan = async () => {
             const response = await fetch(`http://localhost:8080/api/plan/${workoutPlanId}`);
             const data = await response.json();
-            setWorkoutPlan(data);
         };
 
         fetchPlan();

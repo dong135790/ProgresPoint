@@ -78,22 +78,16 @@ public class WorkoutPlanController {
         }
     }
 
-    //Remove an exercise by index from a plan
     @DeleteMapping("/remove/{planId}/{exerciseIndex}")
     public ResponseEntity<String> removeExercise(@PathVariable Long planId, @PathVariable int exerciseIndex) {
-        Optional<WorkoutPlan> maybePlan = workoutPlanService.getPlanById(planId);
-        if (maybePlan.isEmpty()) {
-            return ResponseEntity.badRequest().body("Plan not found");
+        try {
+            workoutPlanService.removeExerciseFromPlan(planId, exerciseIndex);
+            return ResponseEntity.ok("Exercise removed from plan");
+        } catch (RuntimeException e) {
+            System.out.println("FAIL TO DELETE: \n\n\n\n\n");
+            System.out.println(e);
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-        WorkoutPlan plan = maybePlan.get();
-        if (exerciseIndex < 0 || exerciseIndex >= plan.getExerciseList().size()) {
-            return ResponseEntity.badRequest().body("Exercise index out of bounds");
-        }
-
-        plan.removeFromExerciseList(exerciseIndex);
-        workoutPlanService.savePlan(plan);
-        return ResponseEntity.ok("Exercise removed from plan");
     }
 
     //Delete a whole plan by ID
