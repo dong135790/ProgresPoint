@@ -6,7 +6,7 @@ const WorkoutExerciseCard = ({ workoutPlan, exercise, workoutPlanId }) => {
     const [rep, setRep] = useState(0)
     // console.log("Final " + workoutPlanId)
     const addToPlan = async ( id ) => {
-        const exerciseData = await fetch(`http://localhost:8080/api/exercises/exercise/${exercise.id}`)
+        const exerciseData = await fetch(`http://18.117.229.9:8080/api/exercises/exercise/${exercise.id}`)
         const data = await exerciseData.json()
 
         const exerciseInfo = {
@@ -17,7 +17,7 @@ const WorkoutExerciseCard = ({ workoutPlan, exercise, workoutPlanId }) => {
         }
         console.log("Exercise Info ", JSON.stringify(exerciseInfo))
         console.log("Workout Plan ID: " + workoutPlanId)
-        const result = await fetch(`http://localhost:8080/api/plan/add/${workoutPlanId}`, {
+        const result = await fetch(`http://18.117.229.9:8080/api/plan/add/${workoutPlanId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

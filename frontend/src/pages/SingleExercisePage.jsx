@@ -9,7 +9,7 @@ const SingleExercisePage = ({ exercises }) => {
     const [data, setData] = useState(null)
     useEffect(() => {
         const fetchSingleExeriseData = async () => {
-            const exerciseData = await fetch('http://localhost:8080/api/exercises/exercise/' + id)
+            const exerciseData = await fetch('http://18.117.229.9:8080/api/exercises/exercise/' + id)
             .then(res => res.json())
             setData(exerciseData)
         }

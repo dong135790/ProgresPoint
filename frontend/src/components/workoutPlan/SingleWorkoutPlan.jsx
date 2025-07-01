@@ -8,7 +8,7 @@ const SingleWorkoutPlan = ({ workoutPlan, plans, workoutIndex, workoutPlanId }) 
     const [exerciseIndex, setExerciseIndex] = useState(0);
 
     const removeExercise = async (exerciseIndex) => {
-        const result = await fetch(`http://localhost:8080/api/plan/remove/${workoutPlanId}/${exerciseIndex}`, {
+        const result = await fetch(`http://18.117.229.9:8080/api/plan/remove/${workoutPlanId}/${exerciseIndex}`, {
             method: 'DELETE'
         })
         if (result.ok) {

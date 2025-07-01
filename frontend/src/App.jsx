@@ -17,7 +17,8 @@ function App() {
 
   useEffect(() => {
     const allExercise = async () => {
-      const res = await fetch('http://localhost:8080/api/exercises');
+      const res = await fetch('http://18.117.229.9:8080/api/exercises');
+      
       const data = await res.json();
       setExercises(data);
       setAllExercises(data);
@@ -27,7 +28,7 @@ function App() {
   }, [])
 
   const workoutPlan = async () => {
-    const res = await fetch('http://localhost:8080/api/plan');
+    const res = await fetch('http://18.117.229.9:8080/api/plan');
     const data = await res.json();
     setWorkoutData(data);
   }

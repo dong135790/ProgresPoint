@@ -7,7 +7,7 @@ const BodyPartList = ( {allExercises, setExercises} ) => {
     const [bodyPart, setBodyPart] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/exercises/bodyPartList")
+        fetch("http://18.117.229.9:8080/api/exercises/bodyPartList")
         .then(res => res.json())
         .then(data => setBodyPart(data))
         .catch(error => console.error("Unable to find body part:" + error))

@@ -9,7 +9,7 @@ const SearchBar = ({ setExercises }) => {
 
     const handleSearch = async () => {
         if (search) {
-            const exerciseData = await fetch('http://localhost:8080/api/exercises')
+            const exerciseData = await fetch('http://18.117.229.9:8080/api/exercises')
                 .then(res => res.json())
 
             const filteredExercise = exerciseData.filter(

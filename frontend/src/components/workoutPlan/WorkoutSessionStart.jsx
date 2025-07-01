@@ -18,7 +18,7 @@ const WorkoutSessionStart = ({ workoutPlan, workoutPlanId }) => {
     };
     useEffect(() => {
         const fetchPlan = async () => {
-            const response = await fetch(`http://localhost:8080/api/plan/${workoutPlanId}`);
+            const response = await fetch(`http://18.117.229.9:8080/api/plan/${workoutPlanId}`);
             const data = await response.json();
         };
 
