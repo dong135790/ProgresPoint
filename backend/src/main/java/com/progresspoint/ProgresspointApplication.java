@@ -1,13 +1,13 @@
-package com.example.fitness;
+package com.progresspoint;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FitnessApplication {
+public class ProgresspointApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FitnessApplication.class, args);
+		SpringApplication.run(ProgresspointApplication.class, args);
 	}
 
 }
