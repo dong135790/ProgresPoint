@@ -1,7 +1,10 @@
 package com.progresspoint.service;
 
 import com.progresspoint.client.ExerciseApiClient;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class ExerciseService {
@@ -41,5 +44,16 @@ public class ExerciseService {
 
   public String exerciseById(String id) {
     return client.get("/exercises/exercise/" + id);
+  }
+
+  public ResponseEntity<byte[]> exerciseGif(String resolution, String exerciseId) {
+  String path = UriComponentsBuilder
+      .fromPath("/image")
+      .queryParam("resolution", resolution)
+      .queryParam("exerciseId", exerciseId)
+      .build(true)
+      .toUriString();
+
+  return client.getBytes(path);
   }
 }
