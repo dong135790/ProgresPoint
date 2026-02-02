@@ -15,12 +15,14 @@ public class WebConfig {
       public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
             // Vite default:
-            .allowedOrigins("http://localhost:5173")
-            .allowedOrigins("posgrespoint-frontend.onrender.com")
+            .allowedOrigins("http://localhost:5173",
+                "https://progrespoint-frontend.onrender.com"
+
+            )
             // If you use CRA, add "http://localhost:3000" too.
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
-            .allowCredentials(true);
+            .allowCredentials(false);
       }
     };
   }
