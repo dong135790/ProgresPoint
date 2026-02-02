@@ -32,7 +32,7 @@ export default function HeroHeader({
           height: "auto",
           maxHeight,          // keeps it from being too tall
           display: "block",
-          objectFit: "contain",
+          objectFit: "cover",
           objectPosition: "center",
         }}
       />

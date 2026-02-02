@@ -116,9 +116,9 @@ export default function FilterBar({ exercises = [], value, onChange, onClear }) 
           onClick={onClear}
           sx={{
             whiteSpace: "nowrap",
-            borderColor: "rgba(255,255,255,0.35)",
-            color: "#fff",
-            "&:hover": { borderColor: "rgba(255,255,255,0.6)" },
+            borderColor: "rgba(69, 63, 63, 0.35)",
+            color: "#343232ff",
+            "&:hover": { borderColor: "rgba(79, 34, 34, 0.6)" },
           }}
         >
           Clear

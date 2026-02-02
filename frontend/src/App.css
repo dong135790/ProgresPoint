@@ -5,7 +5,7 @@
   box-sizing: border-box;
 
   /* Light palette */
-  --bg: #f6f7fb;            /* page background */
+  --bg: #909296;            /* page background */
   --surface: #ffffff;       /* elevated containers */
   --surface-2: #fbfbfd;     /* slightly tinted surface */
   --text: #111827;          /* main text */
