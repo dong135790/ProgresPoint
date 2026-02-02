@@ -16,6 +16,7 @@ public class WebConfig {
         registry.addMapping("/**")
             // Vite default:
             .allowedOrigins("http://localhost:5173")
+            .allowedOrigins("posgrespoint-frontend.onrender.com")
             // If you use CRA, add "http://localhost:3000" too.
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
