@@ -53,6 +53,7 @@ public class ExerciseController {
   public String getExerciseById(@PathVariable String id) {
     return service.exerciseById(id);
   }
+  
   @GetMapping("/image")
   public ResponseEntity<byte[]> image(
       @RequestParam String exerciseId,
