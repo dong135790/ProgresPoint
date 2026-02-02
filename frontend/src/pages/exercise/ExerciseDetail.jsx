@@ -56,14 +56,14 @@ export default function ExerciseDetail() {
     <Box
       sx={{
         minHeight: "100vh",
-        bgcolor: "#f6f7fb",
+        bgcolor: "#909296",
         color: "#111827",
       }}
     >
       <Navbar />
 
       <Container maxWidth="lg" sx={{ py: 3 }}>
-        <Button variant="outlined" onClick={() => navigate(-1)} sx={{ mb: 2 }}>
+        <Button variant="outlined" onClick={() => navigate(-1)} sx={{ mb: 2, bgcolor: "#f2eeeeff", borderColor: "#222121ff", "&:hover": { borderColor: "rgba(126, 18, 18, 0.6)" } }}>
           ← Back
         </Button>
 
